@@ -1,37 +1,41 @@
 package com.store.entity;
 
+import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table (name="vent")
-public class Vent {
+public class Vent{
 	
 	
 				////////////////////
 				//-----Columns----//
 				////////////////////
 	
-	@Column (name="vent_id")
-	@Id @GeneratedValue
+	@Id 
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column (name="vent_id", updatable = false)
 	private Integer vent_id;
 	
-	@Column (name="name")
+	@Column (name="name", nullable = false)
 	private String name;
 	
 	@Column (name="fins")
 	private Integer fins;
 	
-	@Column (name="length")
+	@Column (name="length", columnDefinition = "numeric CHECK (length>0")
 	private Double length;
 	
-	@Column (name="width")
+	@Column (name="width", columnDefinition =  "numeric CHECK (width>0)")
 	private Double width;
 	
-	@Column (name="type")
+	@Column (name="type", nullable = false)
 	private String type;
 
 				////////////////////

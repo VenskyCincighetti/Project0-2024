@@ -44,10 +44,7 @@ public class AppController {
 	
 	@GetMapping(value = "/vents")
     public @ResponseBody List<Vent> HomePage()
-    {
-		System.out.println("\nhello");
-		System.out.println(ventServ.getAllVent());
-		
+    {	
         return ventServ.getAllVent();
     }
 	
